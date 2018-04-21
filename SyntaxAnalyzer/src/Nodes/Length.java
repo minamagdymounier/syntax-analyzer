@@ -16,9 +16,10 @@ public class Length implements RootNode{
     public boolean print(Queue<Token> tokens) {
         if(tokens.size()>=1)
         {
-            if(tokens.peek().getToken().equals(type))
+            if(tokens.peek().getToken().equals(type)){
                 System.out.print(tokens.poll().getValue()+" ");
                 return true;
+            }
         }
         return false;
     }

@@ -14,12 +14,12 @@ public class EXP_DASH implements RootNode{
 
     @Override
     public boolean print(Queue<Token> tokens) {
+        x = new X(); 
+        exp_dash = new EXP_DASH();
         if(tokens.size()>=1)
         {
-            x = new X();
             if(x.print(tokens))
             {
-                exp_dash = new EXP_DASH();
                 if(exp_dash.print(tokens))
                 {
                     return true;

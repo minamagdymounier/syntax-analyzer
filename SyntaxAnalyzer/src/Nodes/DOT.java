@@ -9,11 +9,11 @@ public class DOT implements RootNode{
 
     public DOT() {
         type = "DOT";
-        dot_dash = new DOT_DASH();
     }
 
     @Override
     public boolean print(Queue<Token> tokens) {
+        dot_dash = new DOT_DASH();
         if(tokens.size() >= 2)
         {
             if(tokens.peek().getToken().equals(type))
