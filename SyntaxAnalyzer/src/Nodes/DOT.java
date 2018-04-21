@@ -22,6 +22,7 @@ public class DOT implements RootNode{
                 if(dot_dash.print(tokens)) return true;
             }
         }
+        
         return false;
     }
     

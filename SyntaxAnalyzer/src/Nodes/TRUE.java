@@ -8,13 +8,13 @@ public class TRUE implements RootNode{
     private EXP_DASH exp_dash;
 
     public TRUE() {
-        True = "true";
-        exp_dash = new EXP_DASH();
+        True = "TRUE";
     }
 
     @Override
     public boolean print(Queue<Token> tokens) {
-        if(tokens.size()>=2){
+        exp_dash = new EXP_DASH();
+        if(tokens.size()>=1){
             if(tokens.peek().getToken().equals(True)){
                 System.out.print(tokens.poll().getValue()+" ");
                 exp_dash.print(tokens); 

@@ -8,7 +8,7 @@ public class ConditionalOperations implements RootNode{
     private Expression expression;
 
     public ConditionalOperations() {
-        op_tokens = new String[]{"AND","OR","NOT_EQUAL","GREATERTHAN","LESSTHAN","LESS_EQ","GREATER_EQ","PLUS","MINUS","MULTIPLY","DIV"};
+        op_tokens = new String[]{"AND","OR","EQUAL","NOT_EQUAL","GREATERTHAN","LESSTHAN","LESS_EQ","GREATER_EQ","PLUS","MINUS","MULTIPLY","DIV"};
     }
     
     private boolean checkType(String type)
@@ -27,9 +27,8 @@ public class ConditionalOperations implements RootNode{
         if(tokens.size()>=2){
             if(checkType(tokens.peek().getToken()))
             {
-                System.out.print(tokens.poll().getValue()+" ");
-                if(expression.print(tokens)) 
-                    return true;
+                System.out.print(tokens.poll().getValue()+" "); 
+                return expression.print(tokens);
             }
         }
         return false;

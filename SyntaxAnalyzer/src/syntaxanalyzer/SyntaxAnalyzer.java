@@ -16,9 +16,17 @@ public class SyntaxAnalyzer {
 //           tokens.add(new Token("LEFT_SQUARE_B","["));
 //           tokens.add(new Token("RIGHT_SQUARE_B","]"));
 //           
-           tokens.add(new Token("INTEGRAL_LITERAL","3"));
-           tokens.add(new Token("OR","||"));
-           tokens.add(new Token("FLOAT_LITERAL","5"));
+//           tokens.add(new Token("TRUE","true"));
+//           tokens.add(new Token("EQUAL","="));
+//           tokens.add(new Token("IDENTIFIER","3"));
+//           tokens.add(new Token("THIS","3"));
+
+          tokens.add(new Token("THIS","this"));
+          tokens.add(new Token("LEFT_SQUARE_B","["));
+          tokens.add(new Token("IDENTIFIER","3"));
+          tokens.add(new Token("RIGHT_SQUARE_B","]"));
+          
+           
            
            Expression expression = new Expression();
            expression.print(tokens);

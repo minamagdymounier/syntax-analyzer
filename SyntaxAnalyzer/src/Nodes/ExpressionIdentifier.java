@@ -16,7 +16,7 @@ public class ExpressionIdentifier implements RootNode{
 
     @Override
     public boolean print(Queue<Token> tokens) {
-        if(tokens.size()>=3){
+        if(tokens.size()>=1){
             if(tokens.peek().getToken().equals(type))
             {
                 System.out.print(tokens.poll().getValue()+" ");

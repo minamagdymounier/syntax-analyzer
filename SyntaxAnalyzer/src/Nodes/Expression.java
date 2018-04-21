@@ -9,7 +9,7 @@ public class Expression implements RootNode{
     private FLOAT_LITERAL float_literal;
     private TRUE True ;
     private FALSE False ;
-    private Identifier identifier;
+    private ExpressionIdentifier identifier;
     private THIS This;
     private NEW New;
     private NOT not;
@@ -27,7 +27,7 @@ public class Expression implements RootNode{
         float_literal = new FLOAT_LITERAL();
         True = new TRUE();
         False = new FALSE();
-        identifier = new Identifier();
+        identifier = new ExpressionIdentifier();
         This = new THIS();
         New = new NEW();
         not = new NOT();
