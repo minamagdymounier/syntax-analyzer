@@ -10,11 +10,11 @@ public class INTEGER_LITERAL  implements RootNode{
 
     public INTEGER_LITERAL() {
         int_literal = "INTEGRAL_LITERAL";
-        exp_dash = new EXP_DASH();
     }
     
     @Override
     public boolean print(Queue<Token> tokens) {
+        exp_dash = new EXP_DASH();
         if(tokens.size()>=2){
             if(tokens.peek().getToken().equals(int_literal)){
                 System.out.print(tokens.poll().getValue()+" ");
