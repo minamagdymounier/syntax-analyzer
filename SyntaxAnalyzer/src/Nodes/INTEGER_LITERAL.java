@@ -18,7 +18,8 @@ public class INTEGER_LITERAL  implements RootNode{
         if(tokens.size()>=2){
             if(tokens.peek().getToken().equals(int_literal)){
                 System.out.print(tokens.poll().getValue()+" ");
-                if(exp_dash.print(tokens)) return true;
+                exp_dash.print(tokens); 
+                return true;
             }   
         }
         return false;

@@ -20,7 +20,8 @@ public class ExpressionIdentifier implements RootNode{
             if(tokens.peek().getToken().equals(type))
             {
                 System.out.print(tokens.poll().getValue()+" ");
-                if(exp_dash.print(tokens)) return true;
+                exp_dash.print(tokens);
+                return true;
             }
         }
         return false;

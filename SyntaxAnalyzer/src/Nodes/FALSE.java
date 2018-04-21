@@ -17,7 +17,8 @@ public class FALSE implements RootNode{
         if(tokens.size()>=2){
             if(tokens.peek().getToken().equals(False)){
                 System.out.print(tokens.poll().getValue()+" ");
-                if(exp_dash.print(tokens)) return true;
+                exp_dash.print(tokens); 
+                return true;
             }   
         }
         return false;

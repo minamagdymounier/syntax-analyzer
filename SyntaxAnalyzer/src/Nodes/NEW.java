@@ -20,7 +20,8 @@ public class NEW implements RootNode{
             if(tokens.peek().getToken().equals(type)){
                 System.out.print(tokens.poll().getValue()+" ");
                 if(new_dash.print(tokens))
-                    if(exp_dash.print(tokens)) return true;
+                    exp_dash.print(tokens);
+                    return true;
             }   
         }
         return false;

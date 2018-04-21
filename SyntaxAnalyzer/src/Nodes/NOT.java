@@ -23,7 +23,8 @@ public class NOT implements RootNode{
             {
                 System.out.print(tokens.poll().getValue()+" ");
                 if(expression.print(tokens))
-                    if(exp_dash.print(tokens)) return true;
+                exp_dash.print(tokens); 
+                return true;
             }
         }
         return false;
