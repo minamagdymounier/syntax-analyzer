@@ -3,14 +3,12 @@ package Nodes;
 import java.util.Queue;
 import syntaxanalyzer.Token;
 
-public class NOT implements RootNode{
+public class ExpressionIdentifier implements RootNode{
     private String type;
-    private Expression expression;
     private EXP_DASH exp_dash;
 
-    public NOT() {
-        type = "NOT";
-        expression = new Expression();
+    public ExpressionIdentifier() {
+        type = "IDENTIFIER";
         exp_dash = new EXP_DASH();
     }
     
@@ -22,11 +20,9 @@ public class NOT implements RootNode{
             if(tokens.peek().getToken().equals(type))
             {
                 System.out.print(tokens.poll().getValue()+" ");
-                if(expression.print(tokens))
-                    if(exp_dash.print(tokens)) return true;
+                if(exp_dash.print(tokens)) return true;
             }
         }
         return false;
     }
 }
-

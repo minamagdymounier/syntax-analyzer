@@ -5,16 +5,24 @@ import syntaxanalyzer.Token;
 
 public class NEW implements RootNode{
     private String type;
+    private NEW_DASH new_dash;
+    private EXP_DASH exp_dash;
 
     public NEW() {
         type = "NEW";
+        new_dash = new NEW_DASH();
+        exp_dash = new EXP_DASH();
     }
     
     @Override
     public boolean print(Queue<Token> tokens) {
-        if(!tokens.peek().getToken().equals(type))
-            return false;
-        System.out.print(tokens.poll().getValue()+" ");
-        return true;
+         if(tokens.size()>=3){
+            if(tokens.peek().getToken().equals(type)){
+                System.out.print(tokens.poll().getValue()+" ");
+                if(new_dash.print(tokens))
+                    if(exp_dash.print(tokens)) return true;
+            }   
+        }
+        return false;
     }
 }
