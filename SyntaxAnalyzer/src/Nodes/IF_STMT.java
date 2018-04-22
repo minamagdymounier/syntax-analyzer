@@ -9,7 +9,7 @@ public class IF_STMT implements RootNode{
     private String LEFT_ROUND_B;
     private Expression expression;
     private String RIGHT_ROUND_B;
-    private InnerStatement statement;
+    private Statement statement;
     private ELSE_PART else_part;
 
     public IF_STMT() {
@@ -20,7 +20,10 @@ public class IF_STMT implements RootNode{
 
     @Override
     public boolean print(Queue<Token> tokens) {
-        if(tokens.size()>=4)
+        expression = new Expression();
+        statement = new Statement();
+        else_part = new ELSE_PART();
+        if(tokens.size()>=5)
         {
             if(tokens.peek().getToken().equals(IF))
             {

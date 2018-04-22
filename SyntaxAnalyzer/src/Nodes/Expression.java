@@ -44,8 +44,6 @@ public class Expression implements RootNode{
             if(not.print(tokens)) return true;
             if(parameterizedExpression.print(tokens)) return true;
         }
-        System.out.println();
-        System.out.println("Syntax Error");
         return false;
     }
     

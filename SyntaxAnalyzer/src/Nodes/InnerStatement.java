@@ -6,7 +6,7 @@ import syntaxanalyzer.Token;
 public class InnerStatement implements RootNode{
     
     private String LEFT_CURLY_B;
-    private InnerStatement statement;
+    private Statement statement;
     private String RIGHT_CURLY_B;
 
     public InnerStatement() {
@@ -16,7 +16,9 @@ public class InnerStatement implements RootNode{
     
     @Override
     public boolean print(Queue<Token> tokens) {
-        statement = new InnerStatement();
+        if(statement == null){
+            statement = new Statement();
+        }
         if(tokens.size()>=2)
         {
             if(tokens.peek().getToken().equals(LEFT_CURLY_B))
@@ -26,6 +28,7 @@ public class InnerStatement implements RootNode{
                 if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                 {
                     System.out.print(tokens.poll().getValue());
+                    return true;
                 }
             }
         }
