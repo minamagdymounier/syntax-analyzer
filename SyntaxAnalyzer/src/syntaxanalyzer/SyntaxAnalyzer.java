@@ -56,11 +56,18 @@ public class SyntaxAnalyzer {
           tokens.add(new Token("LEFT_CURLY_B","{"));
           
           
-          tokens.add(new Token("IF","if "));
+          tokens.add(new Token("WHILE","while"));
           tokens.add(new Token("LEFT_ROUND_B","("));
           tokens.add(new Token("IDENTIFIER","3"));
           tokens.add(new Token("RIGHT_ROUND_B","("));
           tokens.add(new Token("LEFT_CURLY_B","{"));
+          
+          tokens.add(new Token("SYSTEM.OUT.PRINTLN","system.out.println"));
+          tokens.add(new Token("LEFT_ROUND_B","("));
+          tokens.add(new Token("IDENTIFIER","3"));
+          tokens.add(new Token("RIGHT_ROUND_B",")"));
+          tokens.add(new Token("SEMICOLON",";"));
+          
           tokens.add(new Token("RIGHT_CURLY_B","}"));
           
           

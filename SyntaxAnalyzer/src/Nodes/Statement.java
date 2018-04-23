@@ -14,7 +14,6 @@ public class Statement implements RootNode{
     public Statement() {
     }
     
-  
     @Override
     public boolean print(Queue<Token> tokens) {
         innerStatement = new InnerStatement();

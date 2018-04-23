@@ -17,9 +17,6 @@ public class Type implements RootNode{
     @Override
     public boolean print(Queue<Token> tokens) {
         if(!dataType.print(tokens)){
-            System.out.println();
-            System.out.println(" syntax Error ");
-            System.exit(0);
             return false;
         }else{
             square_Brakets.print(tokens);
