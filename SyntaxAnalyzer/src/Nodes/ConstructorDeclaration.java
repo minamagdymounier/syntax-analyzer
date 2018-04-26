@@ -29,6 +29,7 @@ public class ConstructorDeclaration implements RootNode{
         type = new Type();
         varDeclaration = new VarDeclaration();
         statement = new Statement();
+        identifier = new Identifier();
         if(tokens.size()>=5)
         {
             if(identifier.print(tokens))

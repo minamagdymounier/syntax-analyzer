@@ -10,10 +10,6 @@ public class DataType implements RootNode{
     
     public DataType() {
     }
-
-    public DataType(String dataType) {
-        this.dataType = dataType;
-    }
     
     private boolean checkType(String type)
     {

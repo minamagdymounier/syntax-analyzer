@@ -1,4 +1,3 @@
-ERROR: '3CC1' This token did not match any RE @ index 70
 < CLASS > : -class-
 < ID > : -myclass-
 < LEFT_CURLY_B > : -{-

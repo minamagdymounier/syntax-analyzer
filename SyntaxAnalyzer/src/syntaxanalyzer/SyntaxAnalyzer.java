@@ -1,5 +1,6 @@
 package syntaxanalyzer;
 
+import Nodes.ClassDeclaration;
 import Nodes.DataType;
 import Nodes.Expression;
 import Nodes.Goal;
@@ -15,17 +16,13 @@ import java.util.Scanner;
 
 public class SyntaxAnalyzer {
 
-<<<<<<< HEAD
-    public static void main(String[] args) {
-           
-=======
     static Queue<Token> tokens = new LinkedList<Token>();
 
     public static Token subcut(String line){
         Token token = new Token();
         for(int i=0; i <line.length();i++)
             if (line.charAt(i) == ' ' && line.charAt(i+1) == '>')
-                token.token = line.substring(2, i+1);
+                token.token = line.substring(2, i);
             else if (line.charAt(i) == ':' && line.charAt(i+1) == ' ')
                 token.value = line.substring(i+2, line.length());
         return token;
@@ -39,14 +36,17 @@ public class SyntaxAnalyzer {
             tokens.add(token);
         }
         sc.close();
->>>>>>> 97c5a0124a8e17c68536b414ec4c09be940fe49d
+
     }
     
     public static void main(String[] args) throws FileNotFoundException {
         readTokens("tokens.txt");
+        
         Goal goal = new Goal();
         if(!goal.print(tokens)){
+            System.out.println();
             System.out.println("Syntax Error");
         }
     }
 }
+

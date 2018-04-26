@@ -47,14 +47,11 @@
 < LESSTHAN > : <
 < INTEGER_LITERAL > : 1
 < RIGHT_ROUND_B > : )
-< LEFT_CURLY_B > : {
 < ID > : num_aux
 < ASSIGNMENT > : =
 < INTEGER_LITERAL > : 1
 < SEMICOLON > : ;
-< RIGHT_CURLY_B > : }
 < ELSE > : else
-< LEFT_CURLY_B > : {
 < ID > : num_aux
 < ASSIGNMENT > : =
 < ID > : num
@@ -70,7 +67,6 @@
 < RIGHT_ROUND_B > : )
 < RIGHT_ROUND_B > : )
 < SEMICOLON > : ;
-< RIGHT_CURLY_B > : }
 < RETURN > : return
 < ID > : num_aux
 < SEMICOLON > : ;

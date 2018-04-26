@@ -28,7 +28,7 @@ public class Parameters implements RootNode{
                 if(tokens.peek().getToken().equals(LEFT_ROUND_B))
                 {
                     
-                    System.out.print(tokens.poll().getValue()+" ");
+                    System.out.print(tokens.poll().getValue());
                     if(expression.print(tokens))
                     {
                         while(tokens.peek().getToken().equals(COMMA))

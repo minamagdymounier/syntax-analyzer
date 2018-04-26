@@ -8,7 +8,7 @@ public class ConditionalOperations implements RootNode{
     private Expression expression;
 
     public ConditionalOperations() {
-        op_tokens = new String[]{"AND","OR","EQUAL","NOT_EQUAL","GREATERTHAN","LESSTHAN","LESS_EQ","GREATER_EQ","PLUS","MINUS","MULTIPLY","DIV"};
+        op_tokens = new String[]{"AND","OR","EQUAL","NOT_EQUAL","GREATERTHAN","LESSTHAN","LESS_EQ","GREATER_EQ","PLUS","MINUS","MULTIPLIY","DIV"};
     }
     
     private boolean checkType(String type)

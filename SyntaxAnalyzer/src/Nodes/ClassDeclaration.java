@@ -55,6 +55,8 @@ public class ClassDeclaration implements RootNode{
                 }
             }
         }
+        System.out.println("Syntax Error");
+        System.exit(0);
         return false;
     }
     
