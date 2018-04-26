@@ -7,7 +7,7 @@ public class Identifier implements RootNode{
     String identifier;
 
     public Identifier() {
-        identifier = "IDENTIFIER";
+        identifier = "ID";
     }
     
     @Override

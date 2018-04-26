@@ -2,90 +2,46 @@ package syntaxanalyzer;
 
 import Nodes.DataType;
 import Nodes.Expression;
+import Nodes.Goal;
 import Nodes.Identifier;
 import Nodes.Statement;
 import Nodes.Type;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class SyntaxAnalyzer {
 
-    public static void main(String[] args) {
-           Queue<Token> tokens = new LinkedList<Token>();
+    static Queue<Token> tokens = new LinkedList<Token>();
 
-          
-          
-//          tokens.add(new Token("LEFT_ROUND_B","("));
-//          tokens.add(new Token("IDENTIFIER","3"));
-//          tokens.add(new Token("EQUAL","="));
-//          tokens.add(new Token("LEFT_ROUND_B","("));
-//          tokens.add(new Token("IDENTIFIER","3"));
-//          tokens.add(new Token("PLUS","+"));
-//          tokens.add(new Token("FLOAT_LITERAL","3.6"));
-//          tokens.add(new Token("LEFT_SQUARE_B","["));
-//          tokens.add(new Token("INTEGRAL_LITERAL","3.6"));
-//          tokens.add(new Token("RIGHT_SQUARE_B","]"));
-//          tokens.add(new Token("LEFT_SQUARE_B","["));
-//          tokens.add(new Token("INTEGRAL_LITERAL","3.6"));
-//          tokens.add(new Token("RIGHT_SQUARE_B","]"));
-//          tokens.add(new Token("DOT","dot"));
-//          tokens.add(new Token("IDENTIFIER","IDENTIFIER"));          
-//          tokens.add(new Token("LEFT_ROUND_B","("));
-//          tokens.add(new Token("IDENTIFIER","IDENTIFIER"));
-//          tokens.add(new Token("COMMA",","));
-//          tokens.add(new Token("IDENTIFIER","IDENTIFIER"));
-//          tokens.add(new Token("RIGHT_ROUND_B",")"));
-//          tokens.add(new Token("PLUS","+"));
-//          tokens.add(new Token("FLOAT_LITERAL","3.6"));
-//          tokens.add(new Token("DOT","dot"));
-//          tokens.add(new Token("IDENTIFIER","IDENTIFIER"));          
-//          tokens.add(new Token("LEFT_ROUND_B","("));
-//          tokens.add(new Token("IDENTIFIER","IDENTIFIER"));
-//          tokens.add(new Token("COMMA",","));
-//          tokens.add(new Token("IDENTIFIER","IDENTIFIER"));
-//          tokens.add(new Token("RIGHT_ROUND_B",")"));
-//          tokens.add(new Token("RIGHT_ROUND_B",")"));
-//          tokens.add(new Token("RIGHT_ROUND_B",")"));
-
-          
-//          tokens.add(new Token("RIGHT_ROUND_B",")"));
-          
-          tokens.add(new Token("LEFT_CURLY_B","{"));
-          tokens.add(new Token("LEFT_CURLY_B","{"));
-          tokens.add(new Token("LEFT_CURLY_B","{"));
-          tokens.add(new Token("LEFT_CURLY_B","{"));
-          
-          
-          tokens.add(new Token("WHILE","while"));
-          tokens.add(new Token("LEFT_ROUND_B","("));
-          tokens.add(new Token("IDENTIFIER","3"));
-          tokens.add(new Token("RIGHT_ROUND_B","("));
-          tokens.add(new Token("LEFT_CURLY_B","{"));
-          
-          tokens.add(new Token("SYSTEM.OUT.PRINTLN","system.out.println"));
-          tokens.add(new Token("LEFT_ROUND_B","("));
-          tokens.add(new Token("IDENTIFIER","3"));
-          tokens.add(new Token("RIGHT_ROUND_B",")"));
-          tokens.add(new Token("SEMICOLON",";"));
-          
-          tokens.add(new Token("RIGHT_CURLY_B","}"));
-          
-          
-          tokens.add(new Token("RIGHT_CURLY_B","}"));
-          tokens.add(new Token("RIGHT_CURLY_B","}"));
-          tokens.add(new Token("RIGHT_CURLY_B","}"));
-          tokens.add(new Token("RIGHT_CURLY_B","}"));
-          
-           
-          
-          
-           
-           
-           Statement statement = new Statement();
-           if(!statement.print(tokens)){
-               System.out.println();
-               System.out.println("Syntax Error");
-           }
+    public static Token subcut(String line){
+        Token token = new Token();
+        for(int i=0; i <line.length();i++)
+            if (line.charAt(i) == ' ' && line.charAt(i+1) == '>')
+                token.token = line.substring(2, i+1);
+            else if (line.charAt(i) == ':' && line.charAt(i+1) == ' ')
+                token.value = line.substring(i+2, line.length());
+        return token;
     }
     
+    public static void readTokens(String tokensfilename) throws FileNotFoundException{
+        Scanner sc = new Scanner(new FileReader(tokensfilename));
+        while(sc.hasNextLine()) {
+            String line = sc.nextLine();
+            Token token = subcut(line);
+            tokens.add(token);
+        }
+        sc.close();
+    }
+    
+    public static void main(String[] args) throws FileNotFoundException {
+        readTokens("tokens.txt");
+        Goal goal = new Goal();
+        if(!goal.print(tokens)){
+            System.out.println("Syntax Error");
+        }
+    }
 }
