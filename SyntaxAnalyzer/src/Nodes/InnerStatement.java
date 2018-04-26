@@ -23,11 +23,11 @@ public class InnerStatement implements RootNode{
         {
             if(tokens.peek().getToken().equals(LEFT_CURLY_B))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 statement.print(tokens);
                 if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                 {
-                    System.out.print(tokens.poll().getValue());
+                    System.out.print(tokens.poll().getValue()+" ");
                     return true;
                 }
             }

@@ -45,6 +45,8 @@ public class SyntaxAnalyzer {
         Goal goal = new Goal();
         if(!goal.print(tokens)){
             System.out.println();
+            System.out.println();
+            System.out.println();
             System.out.println("Syntax Error");
         }
     }

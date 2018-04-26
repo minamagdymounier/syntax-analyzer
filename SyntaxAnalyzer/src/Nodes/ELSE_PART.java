@@ -19,7 +19,7 @@ public class ELSE_PART implements RootNode{
         {
             if(tokens.peek().getToken().equals(type))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 if(statement.print(tokens)){ return true;}
             }
         }

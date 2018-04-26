@@ -26,19 +26,19 @@ public class ID_EXP_EXP implements RootNode{
         {
             if(tokens.peek().getToken().equals(LEFT_SQUARE_B))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 if(expression.print(tokens))
                 {
                  if(tokens.peek().getToken().equals(RIGHT_SQUARE_B))
                     {
-                        System.out.print(tokens.poll().getValue());   
+                        System.out.print(tokens.poll().getValue()+" ");   
                         if(tokens.peek().getToken().equals(ASSIGNMENT))
                         {
                             if(expression.print(tokens))
                             {
                                 if(tokens.peek().getToken().equals(SEMICOLON))
                                 {
-                                    System.out.print(tokens.poll().getValue()); 
+                                    System.out.print(tokens.poll().getValue()+" "); 
                                     return true;
                                 }
                             }

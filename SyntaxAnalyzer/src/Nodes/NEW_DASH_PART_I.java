@@ -27,19 +27,19 @@ public class NEW_DASH_PART_I implements RootNode{
             {
                 if(tokens.peek().getToken().equals(LEFT_ROUND_B))
                 {
-                    System.out.print(tokens.poll().getValue());
+                    System.out.print(tokens.poll().getValue()+" ");
                     if(expression.print(tokens))
                     {
                         while(tokens.peek().getToken().equals(COMMA))
                         {
-                            System.out.print(tokens.poll().getValue());
+                            System.out.print(tokens.poll().getValue()+" ");
                             expression.print(tokens);
                         }
                     }
                     
                     if(tokens.peek().getToken().equals(RIGHT_ROUND_B))
                     {
-                        System.out.print(tokens.poll().getValue());
+                        System.out.print(tokens.poll().getValue()+" ");
                         return true;
                     }
                     

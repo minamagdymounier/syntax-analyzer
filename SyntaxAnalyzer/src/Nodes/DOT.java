@@ -18,7 +18,7 @@ public class DOT implements RootNode{
         {
             if(tokens.peek().getToken().equals(type))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 if(dot_dash.print(tokens)) return true;
             }
         }

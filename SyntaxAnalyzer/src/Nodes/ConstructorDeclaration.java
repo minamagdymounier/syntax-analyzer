@@ -35,7 +35,7 @@ public class ConstructorDeclaration implements RootNode{
             if(identifier.print(tokens))
                 if(tokens.peek().getToken().equals(LEFT_ROUND_B))
                 {
-                    System.out.print(tokens.poll().getValue());
+                    System.out.print(tokens.poll().getValue()+" ");
                     if(type.print(tokens))
                         if(identifier.print(tokens))
                             while(tokens.peek().getToken().equals(COMMA))
@@ -45,14 +45,14 @@ public class ConstructorDeclaration implements RootNode{
                             }
                     if(tokens.peek().getToken().equals(RIGHT_ROUND_B))
                     {
-                        System.out.print(tokens.poll().getValue());
+                        System.out.print(tokens.poll().getValue()+" ");
                         if(tokens.peek().getToken().equals(LEFT_CURLY_B))
                         {
-                            System.out.print(tokens.poll().getValue());
+                            System.out.print(tokens.poll().getValue()+" ");
                             while(varDeclaration.print(tokens));
                             while(statement.print(tokens));
                             if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
-                                System.out.print(tokens.poll().getValue());
+                                System.out.print(tokens.poll().getValue()+" ");
                                 return true;
                         }
                     }

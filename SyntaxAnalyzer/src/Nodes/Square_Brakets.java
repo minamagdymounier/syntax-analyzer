@@ -16,9 +16,9 @@ public class Square_Brakets implements RootNode{
     public boolean print(Queue<Token> tokens) {
         if(tokens.size()>=2){
         if(tokens.peek().getToken().equals(LEFT_SQUARE_B)){
-            System.out.print(tokens.poll().getValue());
+            System.out.print(tokens.poll().getValue()+" ");
             if(tokens.peek().getToken().equals(RIGHT_SQUARE_B)){
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 return true;
             }
             System.out.println();

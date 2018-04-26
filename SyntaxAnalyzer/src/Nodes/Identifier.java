@@ -16,7 +16,7 @@ public class Identifier implements RootNode{
         {
             if(tokens.peek().getToken().equals(identifier))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 return true;
             }
         }

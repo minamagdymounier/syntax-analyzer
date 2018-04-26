@@ -15,11 +15,17 @@ public class Goal implements RootNode{
     public boolean print(Queue<Token> tokens) {
         mainClass = new MainClass();
         classDeclaration = new ClassDeclaration();
+        boolean x ;
         if(tokens.size()>=1)
         {
             if(mainClass.print(tokens))
             {
-                while(classDeclaration.print(tokens));
+                do
+                {   
+                    x = classDeclaration.print(tokens);
+                    if(!x) return false;
+                }while(x);
+               
                 return true;
             }
         }

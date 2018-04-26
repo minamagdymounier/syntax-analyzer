@@ -51,17 +51,17 @@ public class MethodDeclaration implements RootNode{
         {
             if(checkType(tokens.peek().getToken()))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 if(type.print(tokens)){
                     if(identifier.print(tokens)){
                         if(tokens.peek().getToken().equals(LEFT_ROUND_B))
                         {
-                            System.out.print(tokens.poll().getValue());
+                            System.out.print(tokens.poll().getValue()+" ");
                             if(type.print(tokens)){
                                 if(identifier.print(tokens)){
                                     while(tokens.peek().getToken().equals(COMMA))
                                     {
-                                        System.out.print(tokens.poll().getValue());
+                                        System.out.print(tokens.poll().getValue()+" ");
                                         if(type.print(tokens))
                                             identifier.print(tokens);
                                     }
@@ -69,22 +69,22 @@ public class MethodDeclaration implements RootNode{
                             }
                             if(tokens.peek().getToken().equals(RIGHT_ROUND_B))
                             {
-                                System.out.print(tokens.poll().getValue());
+                                System.out.print(tokens.poll().getValue()+" ");
                                 if(tokens.peek().getToken().equals(LEFT_CURLY_B))
                                 {
-                                    System.out.print(tokens.poll().getValue());
+                                    System.out.print(tokens.poll().getValue()+" ");
                                     while(varDeclaration.print(tokens));
                                     while(statement.print(tokens));
                                     if(tokens.peek().getToken().equals(RETURN))
                                     {
-                                        System.out.print(tokens.poll().getValue());
+                                        System.out.print(tokens.poll().getValue()+" ");
                                         if(expression.print(tokens))
                                         {
                                             if(tokens.peek().getToken().equals(SEMICOLON))
                                             {
-                                                System.out.print(tokens.poll().getValue());
+                                                System.out.print(tokens.poll().getValue()+" ");
                                                 if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
-                                                    System.out.print(tokens.poll().getValue());
+                                                    System.out.print(tokens.poll().getValue()+" ");
                                                     return true;
                                             }
                                         }

@@ -23,10 +23,10 @@ public class ParameterizedExpression implements RootNode{
         {
             if(tokens.peek().getToken().equals(LEFT_ROUND_B))
             {
-                System.out.print(tokens.poll().getValue());   
+                System.out.print(tokens.poll().getValue()+" ");   
                 if(expression.print(tokens)){
                     if(tokens.peek().getToken().equals(RIGHT_ROUND_B)) { 
-                        System.out.print(tokens.poll().getValue());
+                        System.out.print(tokens.poll().getValue()+" ");
                         exp_dash.print(tokens);
                         return true;
                     }

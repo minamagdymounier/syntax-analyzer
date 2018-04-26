@@ -33,14 +33,14 @@ public class NEW_DASH_PART_II implements RootNode{
         {
             if(checkType(tokens.peek().getToken()))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 if(tokens.peek().getToken().equals(LEFT_SQUARE_B))
                 {
-                    System.out.print(tokens.poll().getValue());
+                    System.out.print(tokens.poll().getValue()+" ");
                     if(expression.print(tokens))
                     {
                         if(tokens.peek().getToken().equals(RIGHT_SQUARE_B)){
-                            System.out.print(tokens.poll().getValue());
+                            System.out.print(tokens.poll().getValue()+" ");
                             return true;}
                     }
                 }

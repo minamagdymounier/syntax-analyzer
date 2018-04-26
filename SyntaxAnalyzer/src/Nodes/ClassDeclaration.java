@@ -31,32 +31,30 @@ public class ClassDeclaration implements RootNode{
         {
             if(tokens.peek().getToken().equals(CLASS))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 if(identifier.print(tokens))
                 {
                     if(tokens.peek().getToken().equals(EXTENDS))
                     {
-                        System.out.print(tokens.poll().getValue());
+                        System.out.print(tokens.poll().getValue()+" ");
                         identifier.print(tokens);
                     }
                     
                     if(tokens.peek().getToken().equals(LEFT_CURLY_B))
                     {
-                        System.out.print(tokens.poll().getValue());
+                        System.out.print(tokens.poll().getValue()+" ");
                         while(varDeclaration.print(tokens));
                         while(constructorDeclaration.print(tokens));
                         while(methodDeclaration.print(tokens));
                         if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                         {
-                            System.out.print(tokens.poll().getValue());
+                            System.out.print(tokens.poll().getValue()+" ");
                             return true;
                         }
                     }
                 }
             }
         }
-        System.out.println("Syntax Error");
-        System.exit(0);
         return false;
     }
     

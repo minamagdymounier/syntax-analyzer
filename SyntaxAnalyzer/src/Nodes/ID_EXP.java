@@ -21,12 +21,12 @@ public class ID_EXP implements RootNode{
         {
             if(tokens.peek().getToken().equals(ASSIGNMENT))
             {
-                System.out.print(tokens.poll().getValue());
+                System.out.print(tokens.poll().getValue()+" ");
                 if(expression.print(tokens))
                 {
                     if(tokens.peek().getToken().equals(SEMICOLON))
                     {
-                        System.out.print(tokens.poll().getValue());
+                        System.out.print(tokens.poll().getValue()+" ");
                         return true;
                     }
                 }
