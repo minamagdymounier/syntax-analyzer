@@ -7,7 +7,8 @@ public class NEW implements RootNode{
     private String type;
     private NEW_DASH new_dash;
     private EXP_DASH exp_dash;
-
+    private EOL eol;
+    
     public NEW() {
         type = "NEW";
         new_dash = new NEW_DASH();
@@ -16,12 +17,16 @@ public class NEW implements RootNode{
     
     @Override
     public boolean print(Queue<Token> tokens) {
-         if(tokens.size()>=2){
+        eol = new EOL(); 
+        if(tokens.size()>=2){
             if(tokens.peek().getToken().equals(type)){
                 System.out.print(tokens.poll().getValue()+" ");
-                if(new_dash.print(tokens))
+                eol.print(tokens);
+                if(new_dash.print(tokens)){
+                    eol.print(tokens);
                     exp_dash.print(tokens);
                     return true;
+                }
             }   
         }
         return false;

@@ -7,6 +7,7 @@ import syntaxanalyzer.Token;
 public class DataType implements RootNode{
     private String dataType;
     private String[] types = new String[]{"INT" , "FLOAT" , "CHAR" , "BOOLEAN" , "STRING"};
+    private EOL eol;
     
     public DataType() {
     }
@@ -23,6 +24,8 @@ public class DataType implements RootNode{
 
     @Override
     public boolean print(Queue<Token> tokens) {
+        eol = new EOL();
+        eol.print(tokens);
         dataType = tokens.peek().getToken();
         if(checkType(dataType))
         {

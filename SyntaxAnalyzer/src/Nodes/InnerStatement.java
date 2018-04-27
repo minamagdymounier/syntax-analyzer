@@ -8,6 +8,7 @@ public class InnerStatement implements RootNode{
     private String LEFT_CURLY_B;
     private Statement statement;
     private String RIGHT_CURLY_B;
+    private EOL eol;
 
     public InnerStatement() {
         LEFT_CURLY_B = "LEFT_CURLY_B";
@@ -16,15 +17,18 @@ public class InnerStatement implements RootNode{
     
     @Override
     public boolean print(Queue<Token> tokens) {
+        eol = new EOL();
         if(statement == null){
             statement = new Statement();
         }
         if(tokens.size()>=2)
         {
+            eol.print(tokens);
             if(tokens.peek().getToken().equals(LEFT_CURLY_B))
             {
                 System.out.print(tokens.poll().getValue()+" ");
                 statement.print(tokens);
+                eol.print(tokens);
                 if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                 {
                     System.out.print(tokens.poll().getValue()+" ");

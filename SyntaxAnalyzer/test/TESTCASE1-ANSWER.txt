@@ -1,6 +1,6 @@
 < CLASS > : -class-
 < ID > : -class1-
-< LEFT_CURLY_B > : - { -
+< LEFT_CURLY_B > : -{-
 < INT > : -int-
 < ID > : -value-
 < ASSIGNMENT > : -=-

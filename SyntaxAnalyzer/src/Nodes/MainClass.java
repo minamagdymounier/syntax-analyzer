@@ -19,6 +19,7 @@ public class MainClass implements RootNode{
     private String RIGHT_SQUARE_B;
     private Identifier identifier;
     private Statement statement;
+    private EOL eol;
     
     public MainClass() {
         CLASS = "CLASS";
@@ -32,23 +33,28 @@ public class MainClass implements RootNode{
         LEFT_SQUARE_B= "LEFT_SQUARE_B";
         RIGHT_CURLY_B = "RIGHT_CURLY_B";
         RIGHT_ROUND_B = "RIGHT_ROUND_B";
-        RIGHT_SQUARE_B= "RIGHT_SQUARE_B";        
+        RIGHT_SQUARE_B= "RIGHT_SQUARE_B";   
     }
 
     @Override
     public boolean print(Queue<Token> tokens) {
         identifier = new Identifier();
         statement = new Statement();
+        eol = new EOL();
         if(tokens.size()>=17)
         {
+            eol.print(tokens);
             if(tokens.peek().getToken().equals(CLASS))
             {
                 System.out.print(tokens.poll().getValue()+" ");
+                eol.print(tokens);
                 if(identifier.print(tokens))
                 {
+                    eol.print(tokens);
                     if(tokens.peek().getToken().equals(LEFT_CURLY_B))
                     {
                         System.out.print(tokens.poll().getValue()+" ");
+                        eol.print(tokens);
                         if(tokens.peek().getToken().equals(PUBLIC))
                         {
                             System.out.print(tokens.poll().getValue()+" ");
@@ -61,31 +67,41 @@ public class MainClass implements RootNode{
                                     if(tokens.peek().getToken().equals(MAIN))
                                     {
                                         System.out.print(tokens.poll().getValue()+" ");
+                                        eol.print(tokens);
                                         if(tokens.peek().getToken().equals(LEFT_ROUND_B))
                                         {
                                             System.out.print(tokens.poll().getValue()+" ");
+                                            eol.print(tokens);
                                             if(tokens.peek().getToken().equals(STRING))
                                             {
                                                System.out.print(tokens.poll().getValue()+" ");
+                                               eol.print(tokens);
                                                if(tokens.peek().getToken().equals(LEFT_SQUARE_B))
                                                {
                                                    System.out.print(tokens.poll().getValue()+" ");
+                                                   eol.print(tokens);
                                                    if(tokens.peek().getToken().equals(RIGHT_SQUARE_B))
                                                    {
                                                        System.out.print(tokens.poll().getValue()+" ");
+                                                       eol.print(tokens);
                                                        if(identifier.print(tokens))
                                                        {
+                                                           eol.print(tokens);
                                                            if(tokens.peek().getToken().equals(RIGHT_ROUND_B))
                                                            {
                                                                System.out.print(tokens.poll().getValue()+" ");
+                                                               eol.print(tokens);
                                                                if(tokens.peek().getToken().equals(LEFT_CURLY_B))
                                                                {
                                                                    System.out.print(tokens.poll().getValue()+" ");
+                                                                   eol.print(tokens);
                                                                    if(statement.print(tokens))
                                                                    {
+                                                                       eol.print(tokens);
                                                                        if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                                                                        {
                                                                           System.out.print(tokens.poll().getValue()+" ");
+                                                                          eol.print(tokens);
                                                                           if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                                                                           {
                                                                               System.out.print(tokens.poll().getValue()+" ");

@@ -20,11 +20,12 @@ public class SyntaxAnalyzer {
 
     public static Token subcut(String line){
         Token token = new Token();
-        for(int i=0; i <line.length();i++)
+        for(int i=0; i <line.length()-1;i++)
             if (line.charAt(i) == ' ' && line.charAt(i+1) == '>')
                 token.token = line.substring(2, i);
             else if (line.charAt(i) == ':' && line.charAt(i+1) == ' ')
-                token.value = line.substring(i+2, line.length());
+                if (line.charAt(i+2) != '-')    token.value = line.substring(i+2, line.length());
+                else                            token.value = line.substring(i+3, line.length()-1);
         return token;
     }
     
@@ -44,8 +45,6 @@ public class SyntaxAnalyzer {
         
         Goal goal = new Goal();
         if(!goal.print(tokens)){
-            System.out.println();
-            System.out.println();
             System.out.println();
             System.out.println("Syntax Error");
         }

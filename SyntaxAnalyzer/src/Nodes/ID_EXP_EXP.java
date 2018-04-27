@@ -10,7 +10,8 @@ public class ID_EXP_EXP implements RootNode{
     private String RIGHT_SQUARE_B;
     private String ASSIGNMENT;
     private String SEMICOLON;
-
+    private EOL eol;
+    
     public ID_EXP_EXP() {
         LEFT_SQUARE_B = "LEFT_SQUARE_B";
         RIGHT_SQUARE_B = "RIGHT_SQUARE_B";
@@ -22,20 +23,27 @@ public class ID_EXP_EXP implements RootNode{
     @Override
     public boolean print(Queue<Token> tokens) {
         expression = new Expression();
+        eol = new EOL();
         if(tokens.size()>=6)
         {
+            eol.print(tokens);
             if(tokens.peek().getToken().equals(LEFT_SQUARE_B))
             {
                 System.out.print(tokens.poll().getValue()+" ");
+                eol.print(tokens);
                 if(expression.print(tokens))
                 {
-                 if(tokens.peek().getToken().equals(RIGHT_SQUARE_B))
+                 eol.print(tokens);
+                    if(tokens.peek().getToken().equals(RIGHT_SQUARE_B))
                     {
                         System.out.print(tokens.poll().getValue()+" ");   
+                        eol.print(tokens);
                         if(tokens.peek().getToken().equals(ASSIGNMENT))
                         {
+                            eol.print(tokens);
                             if(expression.print(tokens))
                             {
+                                eol.print(tokens);
                                 if(tokens.peek().getToken().equals(SEMICOLON))
                                 {
                                     System.out.print(tokens.poll().getValue()+" "); 

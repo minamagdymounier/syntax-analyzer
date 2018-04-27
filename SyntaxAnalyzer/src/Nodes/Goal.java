@@ -18,13 +18,11 @@ public class Goal implements RootNode{
         boolean x ;
         if(tokens.size()>=1)
         {
+            
             if(mainClass.print(tokens))
             {
-                do
-                {   
-                    x = classDeclaration.print(tokens);
-                    if(!x) return false;
-                }while(x);
+               
+               while( classDeclaration.print(tokens) );
                
                 return true;
             }

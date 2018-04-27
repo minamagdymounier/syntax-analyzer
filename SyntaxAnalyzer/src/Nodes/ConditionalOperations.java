@@ -6,7 +6,8 @@ import syntaxanalyzer.Token;
 public class ConditionalOperations implements RootNode{
     private String[] op_tokens;
     private Expression expression;
-
+    private EOL eol;
+    
     public ConditionalOperations() {
         op_tokens = new String[]{"AND","OR","EQUAL","NOT_EQUAL","GREATERTHAN","LESSTHAN","LESS_EQ","GREATER_EQ","PLUS","MINUS","MULTIPLIY","DIV"};
     }
@@ -24,7 +25,9 @@ public class ConditionalOperations implements RootNode{
     @Override
     public boolean print(Queue<Token> tokens) {
         expression = new Expression();
+        eol = new EOL();
         if(tokens.size()>=2){
+            eol.print(tokens);
             if(checkType(tokens.peek().getToken()))
             {
                 System.out.print(tokens.poll().getValue()+" "); 

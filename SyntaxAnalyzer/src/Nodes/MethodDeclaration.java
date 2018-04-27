@@ -18,7 +18,8 @@ public class MethodDeclaration implements RootNode{
     private VarDeclaration varDeclaration;
     private Statement statement;
     private Expression expression;
-
+    private EOL eol;
+    
     public MethodDeclaration() {
         types = new String[]{"PUBLIC","PRIVATE","PROTECTED"};
         LEFT_CURLY_B = "LEFT_CURLY_B";
@@ -47,16 +48,20 @@ public class MethodDeclaration implements RootNode{
         varDeclaration = new VarDeclaration();
         statement = new Statement();
         expression = new Expression();
+        eol = new EOL();
         if(tokens.size()>=10)
         {
+            eol.print(tokens);
             if(checkType(tokens.peek().getToken()))
             {
                 System.out.print(tokens.poll().getValue()+" ");
                 if(type.print(tokens)){
                     if(identifier.print(tokens)){
+                        eol.print(tokens);
                         if(tokens.peek().getToken().equals(LEFT_ROUND_B))
                         {
                             System.out.print(tokens.poll().getValue()+" ");
+                            eol.print(tokens);
                             if(type.print(tokens)){
                                 if(identifier.print(tokens)){
                                     while(tokens.peek().getToken().equals(COMMA))
@@ -67,25 +72,32 @@ public class MethodDeclaration implements RootNode{
                                     }
                                 }
                             }
+                            eol.print(tokens);
                             if(tokens.peek().getToken().equals(RIGHT_ROUND_B))
                             {
                                 System.out.print(tokens.poll().getValue()+" ");
+                                eol.print(tokens);
                                 if(tokens.peek().getToken().equals(LEFT_CURLY_B))
                                 {
                                     System.out.print(tokens.poll().getValue()+" ");
                                     while(varDeclaration.print(tokens));
                                     while(statement.print(tokens));
+                                    eol.print(tokens);
                                     if(tokens.peek().getToken().equals(RETURN))
                                     {
                                         System.out.print(tokens.poll().getValue()+" ");
                                         if(expression.print(tokens))
                                         {
+                                            eol.print(tokens);
                                             if(tokens.peek().getToken().equals(SEMICOLON))
                                             {
                                                 System.out.print(tokens.poll().getValue()+" ");
-                                                if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
+                                                eol.print(tokens);
+                                                if(tokens.peek().getToken().equals(RIGHT_CURLY_B)){
                                                     System.out.print(tokens.poll().getValue()+" ");
+                                                    eol.print(tokens);
                                                     return true;
+                                                }
                                             }
                                         }
                                     }

@@ -14,7 +14,8 @@ public class ConstructorDeclaration implements RootNode{
     private Type type;
     private VarDeclaration varDeclaration;
     private Statement statement;
-
+    private EOL eol;
+    
     public ConstructorDeclaration() {
         LEFT_ROUND_B = "LEFT_ROUND_B";
         RIGHT_ROUND_B = "RIGHT_ROUND_B";
@@ -30,33 +31,48 @@ public class ConstructorDeclaration implements RootNode{
         varDeclaration = new VarDeclaration();
         statement = new Statement();
         identifier = new Identifier();
+        eol = new EOL();
         if(tokens.size()>=5)
         {
-            if(identifier.print(tokens))
+            eol.print(tokens);
+            if(identifier.print(tokens)){
+                eol.print(tokens);
                 if(tokens.peek().getToken().equals(LEFT_ROUND_B))
                 {
                     System.out.print(tokens.poll().getValue()+" ");
-                    if(type.print(tokens))
+                    eol.print(tokens);
+                    if(type.print(tokens)){
+                        eol.print(tokens);
                         if(identifier.print(tokens))
                             while(tokens.peek().getToken().equals(COMMA))
                             {
-                                if(type.print(tokens))
+                                eol.print(tokens);
+                                if(type.print(tokens)){
+                                    eol.print(tokens);
                                     identifier.print(tokens);
+                                }
                             }
+                    }
+                    eol.print(tokens);
                     if(tokens.peek().getToken().equals(RIGHT_ROUND_B))
                     {
                         System.out.print(tokens.poll().getValue()+" ");
+                        eol.print(tokens);
                         if(tokens.peek().getToken().equals(LEFT_CURLY_B))
                         {
                             System.out.print(tokens.poll().getValue()+" ");
+                            eol.print(tokens);
                             while(varDeclaration.print(tokens));
+                            eol.print(tokens);
                             while(statement.print(tokens));
+                            eol.print(tokens);
                             if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                                 System.out.print(tokens.poll().getValue()+" ");
                                 return true;
                         }
                     }
                 }
+            }
         }
         return false;
     }
