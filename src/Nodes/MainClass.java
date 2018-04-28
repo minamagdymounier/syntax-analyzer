@@ -97,6 +97,7 @@ public class MainClass implements RootNode{
                                                                    eol.print(tokens);
                                                                    if(statement.print(tokens))
                                                                    {
+                                                                       while(statement.print(tokens));
                                                                        eol.print(tokens);
                                                                        if(tokens.peek().getToken().equals(RIGHT_CURLY_B))
                                                                        {

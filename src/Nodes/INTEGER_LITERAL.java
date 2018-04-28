@@ -10,7 +10,7 @@ public class INTEGER_LITERAL  implements RootNode{
     private EOL eol;
     
     public INTEGER_LITERAL() {
-        int_literal = "INTEGER_LITERAL";
+        int_literal = "INTEGRAL_LITERAL";
     }
     
     @Override

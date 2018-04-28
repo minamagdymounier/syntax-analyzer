@@ -14,6 +14,7 @@ public class Expression implements RootNode{
     private NEW New;
     private NOT not;
     private ParameterizedExpression parameterizedExpression;
+    private STRING_LITERAL string_literal;
     
     
     
@@ -25,6 +26,7 @@ public class Expression implements RootNode{
     public boolean print(Queue<Token> tokens) {
         integer_literal = new INTEGER_LITERAL();
         float_literal = new FLOAT_LITERAL();
+        string_literal = new STRING_LITERAL();
         True = new TRUE();
         False = new FALSE();
         identifier = new ExpressionIdentifier();
@@ -34,6 +36,7 @@ public class Expression implements RootNode{
         parameterizedExpression = new ParameterizedExpression();
         if(tokens.size()>=1)
         {
+            if(string_literal.print(tokens)) return true;
             if(integer_literal.print(tokens)) return true;
             if(float_literal.print(tokens)) return true;
             if(True.print(tokens)) return true;

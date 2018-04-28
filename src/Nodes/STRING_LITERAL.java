@@ -15,10 +15,13 @@ public class STRING_LITERAL implements RootNode{
     public boolean print(Queue<Token> tokens) {
         eol = new EOL();
         eol.print(tokens);
-        if(!tokens.peek().getToken().equals(str_literal)){
-            return false;
+        if(tokens.size()>=1){            
+            if(tokens.peek().getToken().equals(str_literal)){
+                System.out.print(tokens.poll().getValue()+" ");
+                eol.print(tokens);
+                return true;
+            }
         }
-        System.out.print(tokens.poll().getValue()+" ");
-        return true;
+        return false;
     }
 }

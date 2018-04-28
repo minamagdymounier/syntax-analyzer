@@ -41,7 +41,7 @@ public class SyntaxAnalyzer {
     }
     
     public static void main(String[] args) throws FileNotFoundException {
-        readTokens("tokens.txt");
+        readTokens("TESTCASE7_STMT7_TOKENS.txt");
         
         Goal goal = new Goal();
         if(!goal.print(tokens)){
