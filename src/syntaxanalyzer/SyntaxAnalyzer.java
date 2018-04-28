@@ -25,7 +25,11 @@ public class SyntaxAnalyzer {
                 token.token = line.substring(2, i);
             else if (line.charAt(i) == ':' && line.charAt(i+1) == ' ')
                 if (line.charAt(i+2) != '-')    token.value = line.substring(i+2, line.length());
-                else                            token.value = line.substring(i+3, line.length()-1);
+                else
+                    if (line.substring(i+2, line.length()).length() > 2)
+                        token.value = line.substring(i+3, line.length()-1);
+                    else
+                        token.value = "-";
         return token;
     }
     
@@ -41,7 +45,7 @@ public class SyntaxAnalyzer {
     }
     
     public static void main(String[] args) throws FileNotFoundException {
-        readTokens("TESTCASE7_STMT7_TOKENS.txt");
+        readTokens("TESTCASE3_STMT3_TOKENS.txt");
         
         Goal goal = new Goal();
         if(!goal.print(tokens)){
