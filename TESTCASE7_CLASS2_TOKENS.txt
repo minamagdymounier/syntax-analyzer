@@ -29,7 +29,6 @@
 < RIGHT_ROUND_B > : )
 < SEMICOLON > : ;
 < EOL > : End of Line
-< EOL > : End of Line
 < RIGHT_CURLY_B > : }
 < EOL > : End of Line
 < RIGHT_CURLY_B > : }
@@ -81,30 +80,6 @@
 < LEFT_SQUARE_B > : [
 < INTEGRAL_LITERAL > : 5
 < RIGHT_SQUARE_B > : ]
-< SEMICOLON > : ;
-< EOL > : End of Line
-< ID > : data
-< LEFT_SQUARE_B > : [
-< INTEGRAL_LITERAL > : 0
-< RIGHT_SQUARE_B > : ]
-< ASSIGNMENT > : =
-< INTEGRAL_LITERAL > : 1
-< SEMICOLON > : ;
-< EOL > : End of Line
-< ID > : data
-< LEFT_SQUARE_B > : [
-< INTEGRAL_LITERAL > : 1
-< RIGHT_SQUARE_B > : ]
-< ASSIGNMENT > : =
-< INTEGRAL_LITERAL > : 2
-< SEMICOLON > : ;
-< EOL > : End of Line
-< ID > : data
-< LEFT_SQUARE_B > : [
-< INTEGRAL_LITERAL > : 2
-< RIGHT_SQUARE_B > : ]
-< ASSIGNMENT > : =
-< INTEGRAL_LITERAL > : 3
 < SEMICOLON > : ;
 < EOL > : End of Line
 < ID > : data

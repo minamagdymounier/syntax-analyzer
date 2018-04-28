@@ -18,16 +18,15 @@ public class EXP_DASH implements RootNode{
         x = new X(); 
         eol = new EOL();
         exp_dash = new EXP_DASH();
+        
         if(tokens.size()>=1)
         {
             eol.print(tokens);
             if(x.print(tokens))
             {
                 eol.print(tokens);
-                if(exp_dash.print(tokens))
-                {
-                    return true;
-                }
+                print(tokens);
+                return true;
             }
         }
         return false;

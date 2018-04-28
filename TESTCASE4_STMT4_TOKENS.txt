@@ -16,7 +16,6 @@
 < RIGHT_ROUND_B > : )
 < LEFT_CURLY_B > : {
 < EOL > : End of Line
-< EOL > : End of Line
 < IF > : if
 < LEFT_ROUND_B > : (
 < ID > : y
@@ -36,8 +35,7 @@
 < LEFT_SQUARE_B > : [
 < INTEGRAL_LITERAL > : 1
 < RIGHT_SQUARE_B > : ]
-< NOT > : !
-< ASSIGNMENT > : =
+< NOT_EQUAL > : !=
 < INTEGRAL_LITERAL > : 5
 < RIGHT_ROUND_B > : )
 < EOL > : End of Line

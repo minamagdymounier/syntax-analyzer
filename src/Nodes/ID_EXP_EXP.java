@@ -24,7 +24,7 @@ public class ID_EXP_EXP implements RootNode{
     public boolean print(Queue<Token> tokens) {
         expression = new Expression();
         eol = new EOL();
-        if(tokens.size()>=6)
+        if(tokens.size()>=5)
         {
             eol.print(tokens);
             if(tokens.peek().getToken().equals(LEFT_SQUARE_B))
@@ -40,6 +40,7 @@ public class ID_EXP_EXP implements RootNode{
                         eol.print(tokens);
                         if(tokens.peek().getToken().equals(ASSIGNMENT))
                         {
+                            System.out.print(tokens.poll().getValue()+" ");
                             eol.print(tokens);
                             if(expression.print(tokens))
                             {

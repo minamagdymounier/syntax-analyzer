@@ -9,9 +9,9 @@ public class ConditionalOperations implements RootNode{
     private EOL eol;
     
     public ConditionalOperations() {
-        op_tokens = new String[]{"AND","OR","EQUAL","NOT_EQUAL","GREATERTHAN","LESSTHAN","LESS_EQ","GREATER_EQ","PLUS","MINUS","MULTIPLIY","DIV"};
+        op_tokens = new String[]{"AND","OR","EQUAL","NOT_EQUAL","GREATERTHAN","LESSTHAN","LESS_EQ","GREATER_EQ","PLUS","MINUS","MULTIPLY","DIV","ASSIGNMENT"};
     }
-    
+   
     private boolean checkType(String type)
     {
         for(int i=0 ; i<this.op_tokens.length ; i++){
@@ -31,7 +31,10 @@ public class ConditionalOperations implements RootNode{
             if(checkType(tokens.peek().getToken()))
             {
                 System.out.print(tokens.poll().getValue()+" "); 
-                return expression.print(tokens);
+                if(expression.print(tokens))
+                {
+                    return true;
+                }
             }
         }
         return false;

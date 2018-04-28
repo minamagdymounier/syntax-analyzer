@@ -9,6 +9,7 @@ public class Squre_Brakets_Expression implements RootNode{
     Expression expression;
     String RIGHT_SQURE_B;
     private EOL eol;
+    EXP_DASH exp_dash;
     
     public Squre_Brakets_Expression() {
         LEFT_SQURE_B = "LEFT_SQUARE_B";
@@ -18,6 +19,7 @@ public class Squre_Brakets_Expression implements RootNode{
     @Override
     public boolean print(Queue<Token> tokens) {
         eol = new EOL();
+        exp_dash = new EXP_DASH();
         if(tokens.size()>=3)
         {
             eol.print(tokens);
@@ -29,6 +31,7 @@ public class Squre_Brakets_Expression implements RootNode{
                     eol.print(tokens);
                     if(tokens.peek().getToken().equals(RIGHT_SQURE_B)){  
                         System.out.print(tokens.poll().getValue()+" ");
+                        eol.print(tokens);
                         return true;
                     }
                 }
